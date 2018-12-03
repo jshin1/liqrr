@@ -1,0 +1,20 @@
+<% if @user.errors.any? %>
+  <p>Please correct the following errors before submitting:</p>
+    <ul>
+      <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %><br><br>
+  <%= f.label :password %>
+  <%= f.text_field :password %><br><br>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br><br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br><br>
+  <%= f.submit %>
+<% end %>
