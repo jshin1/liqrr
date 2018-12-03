@@ -1,1 +1,13 @@
 <h1>Recipe Portal</h1>
+
+<p>
+  Feel free to browse through our extensive collection of incredible cockatail
+  recipes! Our database is updated regularly so you can continue to explore
+  your current and future drinks of choice!
+</p>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+  <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+  <% end %>
+</ul>

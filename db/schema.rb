@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_165803) do
+ActiveRecord::Schema.define(version: 2018_12_03_194143) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -19,29 +19,28 @@ ActiveRecord::Schema.define(version: 2018_12_03_165803) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.boolean "alcoholic"
+    t.boolean "mixer"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.string "measurement"
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.string "occasion"
-    t.string "i1"
-    t.string "m1"
-    t.string "i2"
-    t.string "m2"
-    t.string "i3"
-    t.string "m3"
-    t.string "i4"
-    t.string "m4"
-    t.string "i5"
-    t.string "m5"
-    t.string "i6"
-    t.string "m6"
-    t.string "i7"
-    t.string "m7"
-    t.string "i8"
-    t.string "m8"
-    t.string "i9"
-    t.string "m9"
-    t.string "i10"
-    t.string "m10"
     t.string "category"
     t.text "instructions"
     t.string "glass"
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_165803) do
     t.string "first_name"
     t.string "last_name"
     t.string "password"
+    t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

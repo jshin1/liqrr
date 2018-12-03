@@ -1,0 +1,15 @@
+<h1><%= @recipe.name %></h1>
+
+<!-- picture -->
+
+<div>Occasion</div>
+<%= @recipe.occasion %>
+
+<div>Ingredients</div>
+<%= @recipe.m1 %> <%= @recipe.i1 %><br>
+<%= @recipe.m2 %> <%= @recipe.i2 %><br>
+<% if @recipe.i3 %>
+  <%= @recipe.m3 %> <%= @recipe.i3 %><br>
+<% if @recipe.i3 %>
+  <%= @recipe.m3 %> <%= @recipe.i3 %><br>
+<% end  %>
