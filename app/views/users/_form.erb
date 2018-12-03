@@ -11,10 +11,13 @@
   <%= f.label :username %>
   <%= f.text_field :username %><br><br>
   <%= f.label :password %>
-  <%= f.text_field :password %><br><br>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %><br><br>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %><br><br>
   <%= f.label :last_name %>
   <%= f.text_field :last_name %><br><br>
+  <%= f.label :birthdate %>
+  <%= f.date_select :birthdate, start_year: 1970, end_year: Date.today.year %><br><br>
   <%= f.submit %>
 <% end %>

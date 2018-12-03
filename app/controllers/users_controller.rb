@@ -18,12 +18,18 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit
+    end 
   end
 
   def destroy
@@ -36,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :password)
+    params.require(:user).permit(:username, :first_name, :last_name, :password, :birthdate)
   end
 
 end
