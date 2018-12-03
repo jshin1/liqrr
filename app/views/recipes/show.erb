@@ -2,14 +2,9 @@
 
 <!-- picture -->
 
-<div>Occasion</div>
-<%= @recipe.occasion %>
+<img src="<%= @recipe.img_url %>" alt=""><br><br>
 
-<div>Ingredients</div>
-<%= @recipe.m1 %> <%= @recipe.i1 %><br>
-<%= @recipe.m2 %> <%= @recipe.i2 %><br>
-<% if @recipe.i3 %>
-  <%= @recipe.m3 %> <%= @recipe.i3 %><br>
-<% if @recipe.i3 %>
-  <%= @recipe.m3 %> <%= @recipe.i3 %><br>
-<% end  %>
+Occasion: <%= @recipe.occasion %><br><br><br>
+Category: <%= @recipe.category %><br><br><br>
+Instructions: <%= @recipe.instructions %><br><br><br>
+Glassware: <%= @recipe.glass %><br><br><br>
