@@ -1,6 +1,10 @@
 <h1>Welcome to your profile, <%= @user.full_name %>!</h1>
+<hr>
 
 <h2>FAVORITES</h2>
 <div>
 
 </div>
+<hr>
+<%= button_to 'Edit profile', {action: 'edit'}, method: :get %>
+<%= button_to 'Delete account', {action: 'destroy'}, method: :delete, data: {confirm: 'Are you sure?'} %>
