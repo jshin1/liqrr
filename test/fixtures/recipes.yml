@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  occasion: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  category: MyString
+  instructions: MyText
+
+two:
+  name: MyString
+  occasion: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  i1: MyString
+  m1: MyString
+  category: MyString
+  instructions: MyText
