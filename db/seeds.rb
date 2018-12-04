@@ -1,14 +1,14 @@
 require 'rest-client'
 require 'json'
 
-API = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
-id_count =  0
-
-def request(url, id)
-  response_string = RestClient.get(url + id.to_s)
-  response_hash = JSON.parse(response_string)
-  response_hash
-end
+# API = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
+# id_count =  0
+#
+# def request(url, id)
+#   response_string = RestClient.get(url + id.to_s)
+#   response_hash = JSON.parse(response_string)
+#   response_hash
+# end
 
 # request(API, '12402')['drinks'][0]
 # this gets us a hash of one drink
@@ -23,15 +23,14 @@ end
 
 
 
-def seed_db
-  drink_hash = request(API, '12402')['drinks'][0]
-  new_recipe = Recipe.create(name: drink_hash['strDrink'], instructions: drink_hash['strInstructions'], glass: drink_hash['strGlass'], img_url: drink_hash['strDrinkThumb'], category: drink_hash['strCategory'])
-  RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['strMeasure1'], ingredient: Ingredient.find_or_create_by(name: drink_hash['strIngredient1']))
-  RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['strMeasure2'], ingredient: Ingredient.find_or_create_by(name: drink_hash['strIngredient2']))
-end
-
-seed_db
-byebug
+# def seed_db
+#   drink_hash = request(API, '12402')['drinks'][0]
+#   new_recipe = Recipe.create(name: drink_hash['strDrink'], instructions: drink_hash['strInstructions'], glass: drink_hash['strGlass'], img_url: drink_hash['strDrinkThumb'], category: drink_hash['strCategory'])
+#   RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['strMeasure1'], ingredient: Ingredient.find_or_create_by(name: drink_hash['strIngredient1']))
+#   RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['strMeasure2'], ingredient: Ingredient.find_or_create_by(name: drink_hash['strIngredient2']))
+# end
+#
+# seed_db
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -49,9 +48,4 @@ Recipe.create(name: "Old Fashioned", occasion: "when you're feeling like a godfa
 Recipe.create(name: "Cuba Libre", occasion: "when you're chilling in LES", category: "Highball" , instructions: "N/A", glass: "Highball glass")
 Recipe.create(name: "Dirty Martini", occasion: "when a regular martini ain't cutting it", category: "Martini", instructions: "wd;lnkwdlkfn", glass: "Martini glass")
 
-Ingredient.create(name: "Gin", alcoholic: true, mixer: false, description: "A liquor which derives its predominant flavour from juniper berries. Gin is one of the broadest categories of spirits, all of various origins, styles, and flavour profiles that revolve around juniper as a common ingredient.")
-Ingredient.create(name: "Dry Vermouth", alcoholic: true, mixer: true, description: "dry version of vermouth")
-Ingredient.create(name: "Olive juice", alcoholic: false, mixer: true, description: "it's olive juice, self-explanatory")
-Ingredient.create(name: "Olive garnish", alcoholic: false, mixer: false, description: "literally an olive")
-
-RecipeIngredient.create(measurement: 1, recipe: Recipe.find_by(name: "Dirty Martini"), ingredient: Ingredient.find_by(name: "Gin"))
+RecipeIngredient.create(measurement: "1 oz", recipe: Recipe.find_by(name: "Dirty Martini"), ingredient: Ingredient.find_by(name: "Gin"))

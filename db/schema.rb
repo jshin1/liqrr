@@ -21,8 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_194143) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.boolean "alcoholic"
-    t.boolean "mixer"
+    t.string "ing_type"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
