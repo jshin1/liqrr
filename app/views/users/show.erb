@@ -5,6 +5,14 @@
 <div>
 
 </div>
+
+<h2>MY LIQUOR CABINET MOFOS</h2>
+<div>
+  <% @ingredients.each do |i| %>
+    <li><%= i.name %></li>
+  <% end %>
+
+</div>
 <hr>
 <%= button_to 'Edit profile', {action: 'edit'}, method: :get %>
 <%= button_to 'Delete account', {action: 'destroy'}, method: :delete, data: {confirm: 'Are you sure?'} %>

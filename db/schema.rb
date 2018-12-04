@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_194143) do
+ActiveRecord::Schema.define(version: 2018_12_04_193646) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -21,8 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_194143) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.boolean "alcoholic"
-    t.boolean "mixer"
+    t.string "ing_type"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,6 +46,13 @@ ActiveRecord::Schema.define(version: 2018_12_03_194143) do
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_ingredients", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ingredient_id"
+    t.index ["ingredient_id"], name: "index_user_ingredients_on_ingredient_id"
+    t.index ["user_id"], name: "index_user_ingredients_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @ingredients = @user.ingredients
   end
 
   def new
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :edit
-    end 
+    end
   end
 
   def destroy

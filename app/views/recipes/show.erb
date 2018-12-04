@@ -8,5 +8,11 @@ Occasion: <%= @recipe.occasion %><br><br><br>
 Category: <%= @recipe.category %><br><br><br>
 Instructions: <%= @recipe.instructions %><br><br><br>
 Glassware: <%= @recipe.glass %><br><br><br>
+Ingredients: <br><br>
+<% @recipe.recipe_ingredients.each do |ing| %>
+  <ul>
+    <%= link_to "#{ing.measurement} #{ing.ingredient.name}", ingredient_path(Ingredient.find(ing.ingredient_id)) %>
+  </ul>
+<% end %>
 If you liked this, we recommend the following: <br><br>
 <%= button_to "✩" %>
