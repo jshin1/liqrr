@@ -12,7 +12,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipes = Recipe.all
-    @recipeings = RecipeIngredient.all
   end
 
   def new

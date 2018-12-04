@@ -48,4 +48,6 @@ Recipe.create(name: "Old Fashioned", occasion: "when you're feeling like a godfa
 Recipe.create(name: "Cuba Libre", occasion: "when you're chilling in LES", category: "Highball" , instructions: "N/A", glass: "Highball glass")
 Recipe.create(name: "Dirty Martini", occasion: "when a regular martini ain't cutting it", category: "Martini", instructions: "wd;lnkwdlkfn", glass: "Martini glass")
 
+Ingredient.create(name: "Gin", ing_type: "Gin", description: "Gin")
+
 RecipeIngredient.create(measurement: "1 oz", recipe: Recipe.find_by(name: "Dirty Martini"), ingredient: Ingredient.find_by(name: "Gin"))
