@@ -3,4 +3,14 @@ class Recipe < ApplicationRecord
   has_many :users, through: :favorites
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
+
+  def self.search(search)
+    if search
+      results = self.select do |recipe|
+        recipe.instructions.include?(search)
+      end
+    else
+      self.all
+    end
+  end
 end

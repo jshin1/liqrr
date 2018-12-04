@@ -1,5 +1,13 @@
 <h1>Recipe Portal</h1>
 
+<%= form_tag recipes_path, method: :get do %>
+  <%= text_field_tag(
+      :search,
+      params[:search],
+      placeholder: "Search cocktails!",
+  ) %>
+<% end %>
+
 <p>
   Feel free to browse through our extensive collection of incredible cockatail
   recipes! Our database is updated regularly so you can continue to explore
