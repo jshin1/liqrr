@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 
 API = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
-id_count =  0
+ingredient_count =  0
 
 def request(url, id)
   response_string = RestClient.get(url + id.to_s)
@@ -24,10 +24,25 @@ end
 
 
 def seed_db
-  drink_hash = request(API, '12402')['drinks'][0]
-  new_recipe = Recipe.create(name: drink_hash['strDrink'], instructions: drink_hash['strInstructions'], glass: drink_hash['strGlass'], img_url: drink_hash['strDrinkThumb'], category: drink_hash['strCategory'])
-  RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['strMeasure1'], ingredient: Ingredient.find_or_create_by(name: drink_hash['strIngredient1']))
-  RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['strMeasure2'], ingredient: Ingredient.find_or_create_by(name: drink_hash['strIngredient2']))
+  ingredient_count = 0
+  drink_id = 12400
+  while drink_id < 12500
+    drink_id += 1
+    drink_hash = request(API, drink_id.to_s)
+    if drink_hash['drinks']
+      new_recipe = Recipe.create(name: drink_hash['strDrink'], instructions: drink_hash['strInstructions'], glass: drink_hash['strGlass'], img_url: drink_hash['strDrinkThumb'], category: drink_hash['strCategory'])
+      while ingredient_count < 15
+        ingredient_count += 1
+        measure_arg = 'strMeasure' + ingredient_count.to_s
+        ingredient_arg = 'strIngredient' + ingredient_count.to_s
+        if drink_hash[measure_arg] != "" && drink_hash[measure_arg] != " "
+          RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash[measure_arg], ingredient: Ingredient.find_or_create_by(name: drink_hash[ingredient_arg]))
+        end
+        ingredient_count = 0
+      end
+    end
+  end
+    byebug
 end
 
 seed_db

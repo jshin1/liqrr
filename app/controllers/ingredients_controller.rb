@@ -32,7 +32,6 @@ class IngredientsController < ApplicationController
   def destroy
   end
 
-  def
 
   private
 
