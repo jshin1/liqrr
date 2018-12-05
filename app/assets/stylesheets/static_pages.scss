@@ -1,3 +1,74 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  // left: 50%;
+  // transform: translateX(50%);
+  color: #fff;
+  top: 50%;
+  right: 0;
+  z-index: 15000;
+}
+
+h2 {
+  color: #fff;
+  top: 70%;
+  left: 50%;
+  transform: translateX(50%);
+  z-index: 50;
+}
+
+.body-bg {
+  height: 100vh;
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('bombay.jpeg');
+  // background-image: url("cocktail.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%)translateY(-50%);
+}
+
+li {
+  display: inline-block;
+}
+
+li a:link {
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #fff;
+}
+
+li a {
+  display: inline-block;
+  color: #fff;
+  font-family: Garamond;
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+.menuitem::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width .3s;
+}
+
+.menuitem:hover::after {
+  width: 100%;
+  transition: width .3s;
+}
