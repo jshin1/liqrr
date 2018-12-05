@@ -1,31 +1,33 @@
-<div class="container">
+<div class="recipepage">
+<div class="content">
+  <h1>Recipe Portal</h1>
+  <div> <%= link_to "Home", home_path %>
+  </div><br>
 
-<h1>Recipe Portal</h1>
-<div> <%= link_to "Home", recipes_path %>
-</div><br>
+  <div class="search">
+    <%= form_tag recipes_path, method: :get do %>
+      <%= text_field_tag(
+          :search,
+          params[:search],
+          placeholder: "Search cocktails!",
+      ) %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div><br>
 
-<div class="search">
-  <%= form_tag recipes_path, method: :get do %>
-    <%= text_field_tag(
-        :search,
-        params[:search],
-        placeholder: "Search cocktails!",
-    ) %>
-    <%= submit_tag "Search" %>
-  <% end %>
-</div><br>
+  <p>
+    Feel free to browse through our extensive collection of incredible cockatail
+    recipes! Our database is updated regularly so you can continue to explore
+    your current and future drinks of choice!
+  </p><br>
 
-<p>
-  Feel free to browse through our extensive collection of incredible cockatail
-  recipes! Our database is updated regularly so you can continue to explore
-  your current and future drinks of choice!
-</p><br>
+  <h2>Collection of Cocktails 🍸</h2>
 
-<h2>Collection of Cocktails 🍸</h2>
+  <ul>
+    <% @recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li><br>
+    <% end %>
+  </ul>
+  </div>
 
-<ul>
-  <% @recipes.each do |recipe| %>
-  <li><%= link_to recipe.name, recipe_path(recipe) %></li><br>
-  <% end %>
-</ul>
 </div>

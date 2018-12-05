@@ -7,42 +7,53 @@ body {
   font-family: Garamond;
 }
 
-.title {
-  left: 50%;
-  transform: translateX(50%);
-  font-size: 85px;
-  color: #fff;
-  top: 50%;
-  right: 0;
-  z-index: 15000;
-}
-
-.subtitle {
-  color: #fff;
-  top: 70%;
-  left: 50%;
-  transform: translateX(50%);
-  z-index: 50;
-}
-
-h2 {
-
-}
-
-.body-bg {
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100vh;
   background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('bombay.jpeg');
   // background-image: url("cocktail.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  clip-path: polygon(0 10vh, 100% 0, 100% 85vh, 0 100%);
+}
+
+.wrapper {
+  // margin-top: -50px;
+  // margin-bottom: 50px;
+}
+
+// .title {
+//   position: absolute;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   font-size: 85px;
+//   color: #fff;
+//   top: 50%;
+//   right: 0;
+//   z-index: 15000;
+// }
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  color: #fff;
+  top: 70%;
 }
 
 .menu {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%)translateY(-50%);
+  margin: 100px 0;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // z-index: 50;
+  // color: #fff;
+  // top: 70%;
 }
 
 li {
@@ -63,6 +74,13 @@ li a {
   font-family: Garamond;
   font-size: 20px;
   padding: 0 20px;
+}
+
+.quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
 }
 
 .menuitem::after {
