@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :ingredients, only: [:show]
+  resources :ingredients
   resources :recipes
   resources :favorites
   resources :users
