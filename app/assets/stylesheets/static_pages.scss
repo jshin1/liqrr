@@ -23,19 +23,20 @@ body {
 
 .wrapper {
   // margin-top: -50px;
-  // margin-bottom: 50px;
+  // margin-bottom: 25px;
 }
 
-// .title {
+.title {
 //   position: absolute;
 //   left: 50%;
 //   transform: translateX(-50%);
-//   font-size: 85px;
+  font-size: 85px;
+  margin-bottom: 25px;
 //   color: #fff;
 //   top: 50%;
 //   right: 0;
 //   z-index: 15000;
-// }
+}
 
 .subtitle {
   display: flex;
