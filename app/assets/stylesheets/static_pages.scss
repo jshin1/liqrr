@@ -21,6 +21,10 @@ body {
   clip-path: polygon(0 10vh, 100% 0, 100% 85vh, 0 100%);
 }
 
+.quote {
+
+}
+
 .wrapper {
   // margin-top: -50px;
   // margin-bottom: 25px;
@@ -39,12 +43,12 @@ body {
 }
 
 .subtitle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 50;
-  color: #fff;
-  top: 70%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // // z-index: 50;
+  // color: #fff;
+  // top: 70%;
 }
 
 .menu {
