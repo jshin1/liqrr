@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   def self.search(search)
     if search
       results = self.select do |recipe|
-        recipe.instructions.include?(search) || recipe.name.include?(search.titlecase)
+        recipe.instructions.include?(search) || recipe.name.include?(search.titlecase) || recipe.ingredients.any? {|ing| ing.name.downcase.include?(search.downcase)}
       end
     else
       self.all
