@@ -1,3 +1,9 @@
 <div class="index">
   <h1>Ingredients</h1>
+<hr>
+  <ul>
+    <% @ingredients.each do |ingredient| %>
+      <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li><br>
+    <% end %>
+  </ul>
 </div>
