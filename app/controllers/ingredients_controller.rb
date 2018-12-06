@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
 
-  before_action :find_ingredient, only: [:show]
+  before_action :find_ingredient, only: [:show, :add_to_cabinet]
 
   def index
     @ingredients = Ingredient.all
@@ -30,6 +30,11 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def add_to_cabinet
+    @ingredient.add_to_cabinet
+    byebug
   end
 
 
