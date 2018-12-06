@@ -25,8 +25,8 @@ require 'json'
 
 # def seed_db
 #   ingredient_count = 0
-#   drink_id = 12400
-#   while drink_id < 12500
+#   drink_id = 1
+#   while drink_id < 17500
 #     drink_id += 1
 #     drink_hash = request(API, drink_id.to_s)
 #     if drink_hash['drinks']
@@ -38,11 +38,11 @@ require 'json'
 #         if drink_hash[measure_arg] != "" && drink_hash[measure_arg] != " "
 #           RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash[measure_arg], ingredient: Ingredient.find_or_create_by(name: drink_hash[ingredient_arg]))
 #         end
-#         ingredient_count = 0
 #       end
+#      ingredient_count = 0
 #     end
 #   end
-#     byebug
+#     # byebug
 # end
 #
 # seed_db
