@@ -1,3 +1,26 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Garamond;
+}
+
+.loginpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('bombay.jpeg');
+  // background-image: url("cocktail.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 10vh, 100% 0, 100% 85vh, 0 100%);
+}
+
+.loginbutton {
+  color: #000;
+}

@@ -1,5 +1,8 @@
+<div class="loginpage">
+
+
+
 <h1>Login</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
 
 <h2><%= flash[:notice] %></h2>
 
@@ -10,9 +13,11 @@
   <%= label_tag :password %>
   <%= password_field_tag :password %>
   <br>
-  <%= submit_tag 'Login' %>
+  <%= submit_tag 'Login', class:"loginbutton" %>
 <% end %>
 
     <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
   </div>
+</div>
+
 </div>

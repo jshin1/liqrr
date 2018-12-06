@@ -16,3 +16,15 @@
   background-repeat: no-repeat;
   clip-path: polygon(0 10vh, 100% 0, 100% 85vh, 0 100%);
 }
+
+.profilepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('oldfashioned.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
