@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-  before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :find_recipe, only: [:show, :edit, :update, :destroy, :add_to_favorites]
 
   def index
     @favorites = Favorite.all
@@ -37,6 +37,12 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def add_to_favorites
+    @user = current_user
+    @user.recipes << @recipe
+    redirect_to @user
   end
 
   private
