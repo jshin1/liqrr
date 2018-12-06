@@ -5,14 +5,14 @@
 <h2>FAVORITES</h2>
 <div>
   <% @favorites.each do |f| %>
-    <li><%= f.name %></li>
+    <li><%= link_to f.name, recipe_path(f) %></li>
   <% end %>
 </div><br><br>
 
 <h2>MY LIQUOR CABINET</h2>
 <div>
   <% @ingredients.each do |i| %>
-    <li><%= i.name %></li>
+    <li><%= link_to i.name, ingredient_path(i) %></li>
   <% end %>
 </div><br><br>
 
