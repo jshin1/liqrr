@@ -1,5 +1,13 @@
+<div class="profilepage">
+
 <h1>Welcome to your profile, <%= @user.full_name %>!</h1>
-<hr>
+
+
+  <div class="menu">
+    <li><a href=<%= recipes_path %> class="menuitem">[ Browse cocktails ]</a></li>
+    <li><a href=<%= ingredients_path %> class="menuitem">[ Browse ingredients ]</a></li>
+    <li> <%= link_to "[ Log out ]", logout_path, {method: :delete, :class=>"menuitem"} %> </li>
+  </div>
 
 <h2>FAVORITES</h2>
 <div>
@@ -8,7 +16,7 @@
   <% end %>
 </div>
 
-<h2>MY LIQUOR CABINET MOFOS</h2>
+<h2>MY LIQUOR CABINET</h2>
 <div>
   <% @ingredients.each do |i| %>
     <li><%= i.name %></li>
@@ -18,3 +26,5 @@
 <hr>
 <%= button_to 'Edit profile', {action: 'edit'}, method: :get %>
 <%= button_to 'Delete account', {action: 'destroy'}, method: :delete, data: {confirm: 'Are you sure?'} %>
+
+</div>
