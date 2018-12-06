@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @ingredients = @user.ingredients
+    @favorites = @user.favorites
   end
 
   def new

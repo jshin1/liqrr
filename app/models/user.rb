@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   has_many :favorites
   has_many :recipes, through: :favorites
   has_many :user_ingredients
@@ -22,4 +23,16 @@ class User < ApplicationRecord
       errors.add(:birthdate, "Users must be 21 years of age or older to create an account")
     end
   end
+
+  # def password=(password_text)
+  #   self.password_digest = BCrypt::Password.create(password_text)
+  # end
+  #
+  # def authenticate(password_text)
+  #   if BCrypt::Password.new(self.password_digest) == password_text
+  #     self
+  #   else
+  #     false
+  #   end
+  # end
 end

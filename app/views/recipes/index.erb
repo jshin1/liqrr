@@ -4,6 +4,12 @@
   <div> <%= link_to "Home", home_path %>
   </div><br>
 
+  <h2>My Favorites 💚</h2>
+  <% @favorites.each do |fav| %>
+    <li><%= fav.name %></li>
+  <% end %>
+  <br><br><br><br>
+
   <div class="search">
     <%= form_tag recipes_path, method: :get do %>
       <%= text_field_tag(
@@ -29,5 +35,7 @@
     <% end %>
   </ul>
   </div>
+
+  <h3>faves: id's<%= session[:recipe_id] %></h3>
 
 </div>

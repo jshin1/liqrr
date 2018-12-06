@@ -3,7 +3,9 @@
 
 <h2>FAVORITES</h2>
 <div>
-
+  <% @favorites.each do |f| %>
+    <li><%= f.recipe.name %></li>
+  <% end %>
 </div>
 
 <h2>MY LIQUOR CABINET MOFOS</h2>

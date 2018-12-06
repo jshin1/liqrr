@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
+    @favorites = Favorite.all
     if params[:search]
       @recipes = Recipe.search(params[:search])
     else
@@ -12,6 +13,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipes = Recipe.all
+    @favorite = Favorite.new
   end
 
   def new
