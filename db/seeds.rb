@@ -1,14 +1,14 @@
 require 'rest-client'
 require 'json'
 
-# API = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
-# id_count =  0
+API = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
+id_count =  0
 #
-# def request(url, id)
-#   response_string = RestClient.get(url + id.to_s)
-#   response_hash = JSON.parse(response_string)
-#   response_hash
-# end
+def request(url, id)
+  response_string = RestClient.get(url + id.to_s)
+  response_hash = JSON.parse(response_string)
+  response_hash
+end
 
 # request(API, '12402')['drinks'][0]
 # this gets us a hash of one drink
@@ -23,29 +23,28 @@ require 'json'
 
 
 
-# def seed_db
-#   ingredient_count = 0
-#   drink_id = 18001
-#   while drink_id < 19000
-#     drink_id += 1
-#     drink_hash = request(API, drink_id.to_s)
-#     if drink_hash['drinks']
-#       new_recipe = Recipe.create(name: drink_hash['drinks'][0]['strDrink'], instructions: drink_hash['drinks'][0]['strInstructions'], glass: drink_hash['drinks'][0]['strGlass'], img_url: drink_hash['drinks'][0]['strDrinkThumb'], category: drink_hash['drinks'][0]['strCategory'])
-#       while ingredient_count < 15
-#         ingredient_count += 1
-#         measure_arg = 'strMeasure' + ingredient_count.to_s
-#         ingredient_arg = 'strIngredient' + ingredient_count.to_s
-#         if drink_hash['drinks'][0][measure_arg] != "" && drink_hash['drinks'][0][measure_arg] != " "
-#           RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['drinks'][0][measure_arg], ingredient: Ingredient.find_or_create_by(name: drink_hash['drinks'][0][ingredient_arg]))
-#         end
-#       end
-#      ingredient_count = 0
-#     end
-#   end
-#     # byebug
-# end
-#
-# seed_db
+def seed_db
+  ingredient_count = 0
+  drink_id = 13001
+  while drink_id < 14000
+    drink_id += 1
+    drink_hash = request(API, drink_id.to_s)
+    if drink_hash['drinks']
+      new_recipe = Recipe.create(name: drink_hash['drinks'][0]['strDrink'], instructions: drink_hash['drinks'][0]['strInstructions'], glass: drink_hash['drinks'][0]['strGlass'], img_url: drink_hash['drinks'][0]['strDrinkThumb'], category: drink_hash['drinks'][0]['strCategory'])
+      while ingredient_count < 15
+        ingredient_count += 1
+        measure_arg = 'strMeasure' + ingredient_count.to_s
+        ingredient_arg = 'strIngredient' + ingredient_count.to_s
+        if drink_hash['drinks'][0][measure_arg] != "" && drink_hash['drinks'][0][measure_arg] != " "
+          RecipeIngredient.create(recipe: new_recipe, measurement: drink_hash['drinks'][0][measure_arg], ingredient: Ingredient.find_or_create_by(name: drink_hash['drinks'][0][ingredient_arg]))
+        end
+      end
+     ingredient_count = 0
+    end
+  end
+end
+
+seed_db
 # byebug
 
 # This file should contain all the record creation needed to seed the database with its default values.

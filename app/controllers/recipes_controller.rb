@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     @favorites = Favorite.all
+    @user = User.last
     if params[:search]
       @recipes = Recipe.search(params[:search])
     else

@@ -1,3 +1,5 @@
+<div class="cocktail">
+
 <h1><%= @recipe.name %></h1>
 
 <!-- picture -->
@@ -15,4 +17,6 @@ Ingredients: <br><br>
   </ul>
 <% end %>
 If you liked this, we recommend the following: <br><br>
-<%= button_to "Add to FAVES OMG", favorites_path, {method: :post, recipe_id: @recipe.id} %>
+<%= button_to "Add to FAVES OMG", favorites_path, {method: :post, recipe_id: @recipe.id} %><br><br><br>
+
+</div>
