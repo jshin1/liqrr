@@ -33,8 +33,9 @@ class IngredientsController < ApplicationController
   end
 
   def add_to_cabinet
-    @ingredient.add_to_cabinet
-    byebug
+    @user = current_user
+    @user.ingredients << @ingredient
+    redirect_to @user
   end
 
 
