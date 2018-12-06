@@ -10,10 +10,9 @@
 
 <h2>MY LIQUOR CABINET MOFOS</h2>
 <div>
-  <% @ingredients.each do |i| %>
-    <li><%= i.name %></li>
-  <% end %>
-
+    <% @ingredients.each do |i| %>
+      <li><%= i.name %></li><br>
+    <% end %>
 </div>
 <hr>
 <%= button_to 'Edit profile', {action: 'edit'}, method: :get %>

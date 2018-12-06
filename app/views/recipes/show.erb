@@ -15,4 +15,4 @@ Ingredients: <br><br>
   </ul>
 <% end %>
 If you liked this, we recommend the following: <br><br>
-<%= button_to "Add to FAVES OMG", add_to_favorites_path, {method: :patch, recipe_id: @recipe.id} %>
+<%= button_to "Add to FAVES OMG", favorites_path, {method: :post, recipe_id: @recipe.id} %>

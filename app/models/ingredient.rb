@@ -5,7 +5,7 @@ class Ingredient < ApplicationRecord
   has_many :users, through: :user_ingredients
 
   def add_to_cabinet
-    @user = User.last
+    @user = current_user
     @user.ingredients << self
   end
 end
