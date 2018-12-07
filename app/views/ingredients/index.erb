@@ -1,9 +1,10 @@
 <div class="index">
-  <h1>Ingredients</h1>
-<hr>
-  <ul>
+  <div class="layout">
+  <h1>Ingredients</h1><br><br>
+  <ul class="ing_list">
     <% @ingredients.each do |ingredient| %>
       <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li><br>
     <% end %>
   </ul>
+    </div>
 </div>
