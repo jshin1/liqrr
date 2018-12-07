@@ -19,6 +19,6 @@ class Recipe < ApplicationRecord
       recipe.ingredients.first == self.ingredients.first &&
       recipe.ingredients.second == self.ingredients.second
     end
-   matches
+   matches.delete_if{|r|r.name == self.name}
   end
 end

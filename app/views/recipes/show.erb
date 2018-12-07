@@ -16,13 +16,12 @@ Ingredients: <br><br>
     <%= link_to "#{ing.measurement} #{ing.ingredient.name}", ingredient_path(Ingredient.find(ing.ingredient_id)) %>
   </ul>
 <% end %>
-<%= button_to "Add to FAVES OMG", {action: 'add_to_favorites'}, method: :post %><br><br>
-If you liked this, we recommend the following: <br><br>
-<<<<<<< HEAD
 <%= button_to "Add to FAVORITES", {action: 'add_to_favorites'}, method: :post %><br><br>
-=======
-<% @recipe.recommendations.each do |recommendation| %>
-  <ul>
-    <%= link_to recommendation.name, recipe_path(recommendation) %>
-  </ul>
+<% if @recipe.recommendations.length != 0 %>
+  If you liked this, we recommend the following: <br><br>
+  <% @recipe.recommendations.each do |recommendation| %>
+    <ul>
+      <%= link_to recommendation.name, recipe_path(recommendation) %>
+    </ul>
+  <% end %>
 <% end %>
