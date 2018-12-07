@@ -14,8 +14,9 @@
   <% @ingredients.each do |i| %>
     <li><%= link_to i.name, ingredient_path(i) %></li>
   <% end %><br>
-  <%= button_to 'What can I make?', {action: 'what_can_i_make'}, method: :get %>
 </div><br><br>
+
+<p><%= button_to 'What can I make?', {action: 'what_can_i_make'}, method: :get %> </p>
 
 <div class="menu">
   <li><a href=<%= recipes_path %> class="menuitem">Browse cocktails</a></li>

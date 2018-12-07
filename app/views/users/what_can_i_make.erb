@@ -1,5 +1,7 @@
+<div class="profilepage">
+
 <h1>What Can I Make??</h1>
-<hr>
+
 <% if @recipes != [] %>
   <% @recipes.each do |recipe| %>
     <ul>
@@ -7,3 +9,6 @@
     </ul>
   <% end %>
 <% end %>
+
+<%= link_to "Back to profile", user_path(current_user) %>
+</div>

@@ -3,6 +3,7 @@
       <h1>Recipe Portal</h1>
 
       <div class="menu">
+        <li><a href=<%= user_path(current_user) %> class="menuitem">Profile</a></li>
         <li><a href=<%= ingredients_path %> class="menuitem">Ingredients</a></li>
         <li> <%= link_to "Log out", logout_path, {method: :delete, :class=>"menuitem"} %> </li>
       </div>

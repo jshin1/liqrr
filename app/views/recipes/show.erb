@@ -1,5 +1,9 @@
 <div class="cocktail">
 
+<div class="menu">
+  <li><a href=<%= recipes_path %> class="menuitem">Back to all cocktails</a></li>
+</div>
+
 <h1><%= @recipe.name %></h1>
 
 <!-- picture -->
@@ -12,24 +16,16 @@ Instructions: <%= @recipe.instructions %><br><br><br>
 Glassware: <%= @recipe.glass %><br><br><br>
 Ingredients: <br><br>
 <% @recipe.recipe_ingredients.each do |ing| %>
-  <ul>
-    <%= link_to "#{ing.measurement} #{ing.ingredient.name}", ingredient_path(Ingredient.find(ing.ingredient_id)) %>
-  </ul>
+ <ul>
+   <%= link_to "#{ing.measurement} #{ing.ingredient.name}", ingredient_path(Ingredient.find(ing.ingredient_id)) %>
+ </ul>
 <% end %>
 <%= button_to "Add to FAVORITES", {action: 'add_to_favorites'}, method: :post %><br><br>
-
-If you liked this, we recommend the following: <br><br>
-
-<% @recipe.recommendations.each do |recommendation| %>
-  <ul>
-    <%= link_to recommendation.name, recipe_path(recommendation) %>
-  </ul>
-=======
 <% if @recipe.recommendations.length != 0 %>
-  If you liked this, we recommend the following: <br><br>
-  <% @recipe.recommendations.each do |recommendation| %>
-    <ul>
-      <%= link_to recommendation.name, recipe_path(recommendation) %>
-    </ul>
-  <% end %>
+ If you liked this, we recommend the following: <br><br>
+ <% @recipe.recommendations.each do |recommendation| %>
+   <ul>
+     <%= link_to recommendation.name, recipe_path(recommendation) %>
+   </ul>
+ <% end %>
 <% end %>
