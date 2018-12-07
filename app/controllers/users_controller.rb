@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :destroy, :what_can_i_make]
 
   def index
   end
@@ -35,6 +35,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def what_can_i_make
+    @recipes = @user.what_can_i_make
   end
 
   private

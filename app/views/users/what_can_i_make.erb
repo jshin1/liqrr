@@ -1,0 +1,9 @@
+<h1>What Can I Make??</h1>
+<hr>
+<% if @recipes != [] %>
+  <% @recipes.each do |recipe| %>
+    <ul>
+      <%= link_to recipe.name, recipe_path(recipe) %>
+    </ul>
+  <% end %>
+<% end %>
