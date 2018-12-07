@@ -24,6 +24,13 @@ class User < ApplicationRecord
     end
   end
 
+  def what_can_i_make
+    @my_recipes = Recipe.all.select do |recipe|
+      recipe.ingredients - self.ingredients == []
+    end
+    @my_recipes
+  end
+
   # def password=(password_text)
   #   self.password_digest = BCrypt::Password.create(password_text)
   # end

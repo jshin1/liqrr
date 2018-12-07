@@ -17,10 +17,19 @@ Ingredients: <br><br>
   </ul>
 <% end %>
 <%= button_to "Add to FAVORITES", {action: 'add_to_favorites'}, method: :post %><br><br>
+
 If you liked this, we recommend the following: <br><br>
 
 <% @recipe.recommendations.each do |recommendation| %>
   <ul>
     <%= link_to recommendation.name, recipe_path(recommendation) %>
   </ul>
+=======
+<% if @recipe.recommendations.length != 0 %>
+  If you liked this, we recommend the following: <br><br>
+  <% @recipe.recommendations.each do |recommendation| %>
+    <ul>
+      <%= link_to recommendation.name, recipe_path(recommendation) %>
+    </ul>
+  <% end %>
 <% end %>

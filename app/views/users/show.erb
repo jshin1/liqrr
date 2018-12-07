@@ -13,7 +13,8 @@
 <div>
   <% @ingredients.each do |i| %>
     <li><%= link_to i.name, ingredient_path(i) %></li>
-  <% end %>
+  <% end %><br>
+  <%= button_to 'What can I make?', {action: 'what_can_i_make'}, method: :get %>
 </div><br><br>
 
 <div class="menu">
