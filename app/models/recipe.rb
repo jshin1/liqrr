@@ -13,4 +13,12 @@ class Recipe < ApplicationRecord
       self.all
     end
   end
+
+  def recommendations
+    matches = Recipe.all.select do |recipe|
+      recipe.ingredients.first == self.ingredients.first &&
+      recipe.ingredients.second == self.ingredients.second
+    end
+   matches
+  end
 end
